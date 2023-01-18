@@ -1,0 +1,26 @@
+{{ define "chapter02/arrStruct.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--  第一种循环方式-->
+{{range .}}
+   id = {{.Id}}
+   name =  {{.Name}}
+    <br>
+{{end}}
+
+<br>
+<br>
+<!--  第二种循环方式-->
+{{range $i, $v := .}}
+    index ={{$i}} , id = {{$v.Id}} , name = {{$v.Name}}
+    <br>
+{{end}}
+
+</body>
+</html>
+{{end}}
