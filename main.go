@@ -1,15 +1,17 @@
 package main
 
 import (
+	"Gin_Vue/chapter01"
+	"Gin_Vue/chapter02"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func main() {
 	r := gin.Default()
-	r.GET("/index", Index)
-	r.GET("/user", User)
-	r.GET("/news", News)
+	r.GET("/index", chapter01.Index)
+	r.GET("/news", chapter01.News)
+
+	r.GET("/user", chapter02.User)
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
@@ -19,25 +21,4 @@ func main() {
 	r.Static("/static", "static")
 
 	r.Run(":8083")
-}
-
-// 指定到 index.html 文件
-
-func Index(context *gin.Context) {
-	name := "zhiliao"
-	context.HTML(http.StatusOK, "index/index.html", name)
-}
-
-// 指定到 user.html 文件
-
-func User(context *gin.Context) {
-	//name := "user"
-	context.HTML(http.StatusOK, "user/user.html", nil)
-}
-
-// 指定到 news.html 文件
-
-func News(context *gin.Context) {
-	//name := "news"
-	context.HTML(http.StatusOK, "news/news.html", nil)
 }
