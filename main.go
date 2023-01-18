@@ -23,6 +23,12 @@ func main() {
 	// 结构体数组渲染
 	r.GET("/arr_struct", chapter02.ArrStructController)
 
+	// map的渲染
+	r.GET("/map1", chapter02.MapController)
+
+	// map 嵌套map
+	r.GET("/map_map", chapter02.MapMapController)
+
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 

@@ -36,3 +36,29 @@ func ArrStructController(context *gin.Context) {
 	}{{Id: 1, Name: "ljs"}, {Id: 2, Name: "hsm"}}
 	context.HTML(http.StatusOK, "chapter02/arrStruct.html", userArr)
 }
+
+// map 的渲染
+func MapController(context *gin.Context) {
+	m := map[string]int{
+		"chinese": 80,
+		"math":    100,
+		"english": 120,
+	}
+	context.HTML(http.StatusOK, "chapter02/map.html", m)
+}
+
+func MapMapController(context *gin.Context) {
+	mm := map[string]map[string]int{
+		"key1": map[string]int{
+			"chinese": 80,
+			"math":    100,
+			"english": 120,
+		},
+		"key2": map[string]int{
+			"chinese": 1,
+			"math":    2,
+			"english": 3,
+		},
+	}
+	context.HTML(http.StatusOK, "chapter02/map_map.html", mm)
+}

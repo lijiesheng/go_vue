@@ -1,0 +1,22 @@
+{{ define "chapter02/map_map.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  这个是 map_map 页面
+  <br>
+  chinese = {{.key1.chinese}}  <!--如果没有chinese字段 不显示-->
+  math = {{.key1.math}}
+  english = {{.key1.english}}
+
+  <br>
+  chinese = {{.key2.chinese}}  <!--如果没有chinese字段 不显示-->
+  math = {{.key2.math}}
+  english = {{.key2.english}}
+
+</body>
+</html>
+{{end}}
