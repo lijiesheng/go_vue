@@ -12,7 +12,7 @@ func main() {
 	r.GET("/news", News)
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
-	r.LoadHTMLGlob("template/**/*")
+	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 
 	r.Run(":8083")
 }
