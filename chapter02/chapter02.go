@@ -48,7 +48,20 @@ func MapController(context *gin.Context) {
 }
 
 func MapMapController(context *gin.Context) {
-	mm := map[string]map[string]int{
+	//mm := map[string]map[string]int{
+	//	"key1": map[string]int{
+	//		"chinese": 80,
+	//		"math":    100,
+	//		"english": 120,
+	//	},
+	//	"key2": map[string]int{
+	//		"chinese": 1,
+	//		"math":    2,
+	//		"english": 3,
+	//	},
+	//}
+
+	mm := map[string]interface{}{
 		"key1": map[string]int{
 			"chinese": 80,
 			"math":    100,
@@ -59,6 +72,8 @@ func MapMapController(context *gin.Context) {
 			"math":    2,
 			"english": 3,
 		},
+		"key3": 1,
 	}
+
 	context.HTML(http.StatusOK, "chapter02/map_map.html", mm)
 }
