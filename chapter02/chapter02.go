@@ -196,3 +196,37 @@ func DoUserAdd(context *gin.Context) {
 	fmt.Println("添加用户")
 	context.String(http.StatusOK, "%s", username+" "+password) // 直接输出浏览器
 }
+
+// 需要 将jquery.min.js 放到 /static/js 中
+// 使用 ajax 发送 , post 请求
+func ToUserAdd3(context *gin.Context) {
+	context.HTML(http.StatusOK, "chapter02/user_add3.html", nil)
+}
+
+// 添加用户
+func DoUserAdd3(context *gin.Context) {
+	// 1、获取参数
+	username := context.PostForm("username")
+	password := context.DefaultPostForm("password", "ljs")
+
+	values := context.PostFormArray("love")
+	fmt.Println("values = ", values)
+	for _, v := range values {
+		fmt.Printf(v + " ")
+	}
+	fmt.Println()
+
+	m := context.PostFormMap("user")
+	for k, v := range m {
+		fmt.Println(k, " = ", v)
+	}
+
+	fmt.Println(username)
+	fmt.Println(password)
+	fmt.Println("添加用户")
+
+	context.JSON(http.StatusOK, gin.H{ //  给 ajax 返回数据
+		"code": 200,
+		"msg":  "提交成功",
+	})
+}
