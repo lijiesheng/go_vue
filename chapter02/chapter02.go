@@ -1,6 +1,7 @@
 package chapter02
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -103,7 +104,7 @@ func MapStructController(context *gin.Context) {
 	context.HTML(http.StatusOK, "chapter02/map_struct.html", mm)
 }
 
-// slice
+// slice 渲染
 func SliceController(context *gin.Context) {
 	ints := make([]int, 0)
 	for i := 0; i < 5; i++ {
@@ -112,6 +113,7 @@ func SliceController(context *gin.Context) {
 	context.HTML(http.StatusOK, "chapter02/slice.html", ints)
 }
 
+// slice 渲染
 func SliceStructController(context *gin.Context) {
 	user_list := []struct {
 		Id   int
@@ -121,4 +123,24 @@ func SliceStructController(context *gin.Context) {
 		{Id: 2, Name: "hsm"},
 	}
 	context.HTML(http.StatusOK, "chapter02/slice_struct.html", user_list)
+}
+
+// 获取路径上的参数【单个参数】
+func Param1(context *gin.Context) {
+	param := context.Param("id")
+	context.String(http.StatusOK, "hello"+param) // 直接输出浏览器
+}
+
+// 获取路径上的参数【多个参数】
+func Param2(context *gin.Context) {
+	id := context.Param("id")
+	name := context.Param("name")
+	context.String(http.StatusOK, "hello"+" "+id+" "+name) // 直接输出浏览器
+}
+
+// 获取路径上的参数
+func Param3(context *gin.Context) {
+	id := context.Param("id")
+	fmt.Println("获取到 param3 ")
+	context.String(http.StatusOK, id) // 直接输出浏览器
 }
