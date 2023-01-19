@@ -151,3 +151,20 @@ func GetQueryData(context *gin.Context) {
 	name := context.DefaultQuery("name", "ljs") // 如果没有获取到，值是 ljs
 	context.String(http.StatusOK, id+", "+name) // 直接输出浏览器
 }
+
+// 获取数组
+func GetQueryArr(context *gin.Context) {
+	values := context.QueryArray("name")
+	fmt.Println(len(values))
+	context.String(http.StatusOK, "%s", values) // 直接输出浏览器
+}
+
+// 获取map
+func GetQueryMap(context *gin.Context) {
+	values := context.QueryMap("name")
+	fmt.Println("values = ", values)
+	for k, v := range values {
+		fmt.Println(k, " = ", v)
+	}
+	context.String(http.StatusOK, "%s", values) // 直接输出浏览器
+}

@@ -48,9 +48,12 @@ func main() {
 
 	// 2、? 后面的参数获取
 	r.GET("/query", chapter02.GetQueryData)
-	// 3、
 
-	// 4、
+	// 3、? 后面获取数组  /user?name=1,2,3,4,5
+	r.GET("/query_arr", chapter02.GetQueryArr)
+
+	// 4、? 后面获取 map /user?name["aa"]=hallen&name["bb"]=hallen2  其中 aa bb 是key ，name 是map的一个实例
+	r.GET("/query_map", chapter02.GetQueryMap)
 
 	/*------------------------------3、获取POST请求参数 【前端给后端数据】-------------------------------*/
 
