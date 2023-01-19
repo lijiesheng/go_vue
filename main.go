@@ -39,12 +39,14 @@ func main() {
 
 	r.GET("/slice_struct", chapter02.SliceStructController)
 
-	/*------------------------------2、获取GET请求参数  【前端给后端数据】-------------------------------*/
+	/*------------------------------2、获取路由参数  【前端给后端数据】-------------------------------*/
 
 	// 1、路由参数获取
 	r.GET("/param/:id", chapter02.Param1)       // 获取一个参数   路由必须是/param/xxx
 	r.GET("/param/:id/:name", chapter02.Param2) // 获取多个参数   路由必须是/param/xxx/xxx
 	r.GET("/param2/*id", chapter02.Param3)      // 路由可以是 /param2 或者 param2/123 param2/123/123 都可以匹配到
+
+	/*------------------------------2、获取GET请求参数  【前端给后端数据】-------------------------------*/
 
 	// 2、? 后面的参数获取
 	r.GET("/query", chapter02.GetQueryData)
@@ -56,7 +58,8 @@ func main() {
 	r.GET("/query_map", chapter02.GetQueryMap)
 
 	/*------------------------------3、获取POST请求参数 【前端给后端数据】-------------------------------*/
-
+	r.GET("/to_user_add", chapter02.ToUserAdd) // 进入这个页面
+	r.POST("/do_user_add", chapter02.DoUserAdd)
 	/*------------------------------4、参数绑定-------------------------------*/
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件

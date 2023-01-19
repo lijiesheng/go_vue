@@ -168,3 +168,19 @@ func GetQueryMap(context *gin.Context) {
 	}
 	context.String(http.StatusOK, "%s", values) // 直接输出浏览器
 }
+
+// 进入用户添加页面
+func ToUserAdd(context *gin.Context) {
+	context.HTML(http.StatusOK, "chapter02/user_add.html", nil)
+}
+
+// 添加用户
+func DoUserAdd(context *gin.Context) {
+	// 1、获取参数
+	username := context.PostForm("username")
+	password := context.PostForm("password")
+	fmt.Println(username)
+	fmt.Println(password)
+	fmt.Println("添加用户")
+	context.String(http.StatusOK, "%s", username+" "+password) // 直接输出浏览器
+}
