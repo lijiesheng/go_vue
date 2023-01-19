@@ -32,6 +32,11 @@ func main() {
 	// map + 结构体
 	r.GET("/map_struct", chapter02.MapStructController)
 
+	// 切片
+	r.GET("/slice", chapter02.SliceController)
+
+	r.GET("/slice_struct", chapter02.SliceStructController)
+
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 

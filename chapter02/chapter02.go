@@ -78,7 +78,7 @@ func MapMapController(context *gin.Context) {
 	context.HTML(http.StatusOK, "chapter02/map_map.html", mm)
 }
 
-//
+// map + struct
 func MapStructController(context *gin.Context) {
 	user := struct {
 		Id   int
@@ -101,4 +101,24 @@ func MapStructController(context *gin.Context) {
 		},
 	}
 	context.HTML(http.StatusOK, "chapter02/map_struct.html", mm)
+}
+
+// slice
+func SliceController(context *gin.Context) {
+	ints := make([]int, 0)
+	for i := 0; i < 5; i++ {
+		ints = append(ints, i)
+	}
+	context.HTML(http.StatusOK, "chapter02/slice.html", ints)
+}
+
+func SliceStructController(context *gin.Context) {
+	user_list := []struct {
+		Id   int
+		Name string
+	}{
+		{Id: 1, Name: "ljs"},
+		{Id: 2, Name: "hsm"},
+	}
+	context.HTML(http.StatusOK, "chapter02/slice_struct.html", user_list)
 }
