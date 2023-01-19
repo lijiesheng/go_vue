@@ -178,7 +178,19 @@ func ToUserAdd(context *gin.Context) {
 func DoUserAdd(context *gin.Context) {
 	// 1、获取参数
 	username := context.PostForm("username")
-	password := context.PostForm("password")
+	password := context.DefaultPostForm("password", "ljs")
+
+	values := context.PostFormArray("love")
+	for _, v := range values {
+		fmt.Printf(v + " ")
+	}
+	fmt.Println()
+
+	m := context.PostFormMap("user")
+	for k, v := range m {
+		fmt.Println(k, " = ", v)
+	}
+
 	fmt.Println(username)
 	fmt.Println(password)
 	fmt.Println("添加用户")
