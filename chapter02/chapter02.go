@@ -77,3 +77,28 @@ func MapMapController(context *gin.Context) {
 
 	context.HTML(http.StatusOK, "chapter02/map_map.html", mm)
 }
+
+//
+func MapStructController(context *gin.Context) {
+	user := struct {
+		Id   int
+		Name string
+	}{
+		Id:   1,
+		Name: "ljs",
+	}
+
+	mm := map[string]interface{}{
+		"key1": user,
+		"key2": "name",
+		"key3": []struct {
+			Id   int
+			Name string
+		}{
+			{Id: 10, Name: "ljs10"},
+			{Id: 20, Name: "ljs20"},
+			{Id: 30, Name: "ljs30"},
+		},
+	}
+	context.HTML(http.StatusOK, "chapter02/map_struct.html", mm)
+}

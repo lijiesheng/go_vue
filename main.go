@@ -29,6 +29,9 @@ func main() {
 	// map 嵌套map
 	r.GET("/map_map", chapter02.MapMapController)
 
+	// map + 结构体
+	r.GET("/map_struct", chapter02.MapStructController)
+
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 

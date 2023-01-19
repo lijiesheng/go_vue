@@ -1,0 +1,21 @@
+{{ define "chapter02/map_struct.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    这是 map_struct 页面
+    <br>
+    key1 : id = {{.key1.Id}},  name = {{.key1.Name}}
+    key2 : name = {{.key2}}
+    <br>
+    {{range $i, $v := .key3}}
+        id = {{$v.Id}}, name = {{$v.Name}}
+    <br>
+    {{end}}
+
+</body>
+</html>
+{{end}}
