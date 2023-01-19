@@ -144,3 +144,10 @@ func Param3(context *gin.Context) {
 	fmt.Println("获取到 param3 ")
 	context.String(http.StatusOK, id) // 直接输出浏览器
 }
+
+// 获取 ? 后面的参数
+func GetQueryData(context *gin.Context) {
+	id := context.Query("id")
+	name := context.DefaultQuery("name", "ljs") // 如果没有获取到，值是 ljs
+	context.String(http.StatusOK, id+", "+name) // 直接输出浏览器
+}

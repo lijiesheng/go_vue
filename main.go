@@ -40,9 +40,18 @@ func main() {
 	r.GET("/slice_struct", chapter02.SliceStructController)
 
 	/*------------------------------2、获取GET请求参数  【前端给后端数据】-------------------------------*/
+
+	// 1、路由参数获取
 	r.GET("/param/:id", chapter02.Param1)       // 获取一个参数   路由必须是/param/xxx
 	r.GET("/param/:id/:name", chapter02.Param2) // 获取多个参数   路由必须是/param/xxx/xxx
 	r.GET("/param2/*id", chapter02.Param3)      // 路由可以是 /param2 或者 param2/123 param2/123/123 都可以匹配到
+
+	// 2、? 后面的参数获取
+	r.GET("/query", chapter02.GetQueryData)
+	// 3、
+
+	// 4、
+
 	/*------------------------------3、获取POST请求参数 【前端给后端数据】-------------------------------*/
 
 	/*------------------------------4、参数绑定-------------------------------*/
