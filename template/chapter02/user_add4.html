@@ -1,0 +1,30 @@
+{{ define "chapter02/user_add4.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+这是 user_add4 页面
+<br><br>
+<form action="/do_user_add4" method="post">
+    用户名: <input type="text" name="username">
+    <br>
+    密&nbsp;&nbsp;码:<input type="password" name="password">
+    <br>
+    篮球<input type="checkbox" name="love" value="篮球">
+    足球<input type="checkbox" name="love" value="足球">
+    乒乓球<input type="checkbox" name="love" value="乒乓球">
+    棒球<input type="checkbox" name="love" value="棒球">
+    <br>
+
+    地址 <input type="text" name="user[address]">
+    <br>
+    电话 <input type="text" name="user[phone]">
+    <br>
+    <input type="submit" name="提交">
+</form>
+</body>
+</html>
+{{end}}
