@@ -93,8 +93,18 @@ func main() {
 	/*------------------------------6、其他输出格式-------------------------------*/
 	// 1、json
 	r.GET("/output_json", chapter02.OutJson)
-	// 2、jsonp
-	r.GET("/output_jsonp", chapter02.OutJSONP)
+	// 2、AsciiJSON
+	r.GET("/output_AsciiJSON", chapter02.OutAsciiJSON)
+	// 3、JSONP
+	r.GET("/output_JSONP", chapter02.OutJSONP)
+	// 3、OutAsciiPureJSON
+	r.GET("/output_AsciiPureJSON", chapter02.OutAsciiPureJSON)
+	// 3、OutAsciiSecureJSON
+	r.GET("/output_asciiSecureJSON", chapter02.OutAsciiSecureJSON)
+	// 3、OutAsciiXML
+	r.GET("/output_outAsciiXML", chapter02.OutAsciiXML)
+	// 3、OutAsciiYAML
+	r.GET("/output_asciiYAML", chapter02.OutAsciiYAML)
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
