@@ -258,7 +258,8 @@ func DoUserAdd4(context *gin.Context) {
 // 重定向
 func RedirectA(ctx *gin.Context) {
 	fmt.Println("AAAA")
-	ctx.Redirect(http.StatusFound, "/redirectB")
+	//ctx.Redirect(http.StatusFound, "/redirectB")   // 跳转到 /redirectB
+	ctx.Redirect(http.StatusFound, "https://www.baidu.com/") // 跳转到百度
 }
 
 func RedirectB(ctx *gin.Context) {
