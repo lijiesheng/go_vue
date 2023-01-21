@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -19,7 +20,10 @@ func DoUpload1(context *gin.Context) {
 	fmt.Println(file.Filename) // 文件名
 
 	// 保存文件
-	dst := "upload/" + time.Now().Format("2006-01-02 15:04:05") + "_" + file.Filename
+	//dst := "upload/" + time.Now().Format("2006-01-02 15:04:05") + "_" + file.Filename
+	time_unix_int := time.Now().Unix()
+	time_unix_str := strconv.FormatInt(time_unix_int, 10)
+	dst := "upload/" + time_unix_str + file.Filename
 	context.SaveUploadedFile(file, dst)
 	context.String(http.StatusOK, "上传成功")
 }
