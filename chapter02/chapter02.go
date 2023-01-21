@@ -230,3 +230,27 @@ func DoUserAdd3(context *gin.Context) {
 		"msg":  "提交成功",
 	})
 }
+
+// 参数绑定
+func ToUserAdd4(context *gin.Context) {
+	context.HTML(http.StatusOK, "chapter02/user_add4.html", nil)
+}
+
+func DoUserAdd4(context *gin.Context) {
+	// 1、获取参数
+	// 这里可以获取 form 表单的数据，也可以获取 json 的数据
+	user := struct {
+		Username string            `form:"username" json:"username"`
+		Password string            `form:"password" json:"password"`
+		Love     []string          `form:"love" json:"love"`
+		User     map[string]string `form:"user" json:"user"` // 这个获取不到，可以手动获取
+	}{}
+
+	err := context.ShouldBind(&user)
+	user.User = context.PostFormMap("user") // 手动获取
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(user)
+	context.String(http.StatusOK, "%s", user.Username+" "+user.Password) // 直接输出浏览器
+}
