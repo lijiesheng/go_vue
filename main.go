@@ -4,6 +4,8 @@ import (
 	"Gin_Vue/chapter01"
 	"Gin_Vue/chapter02"
 	"github.com/gin-gonic/gin"
+	"net/http"
+	"time"
 )
 
 func main() {
@@ -117,5 +119,15 @@ func main() {
 	// root 的 static 是代表到 static 文件中去找
 	r.Static("/static", "static")
 
-	r.Run(":8083")
+	//r.Run(":8083")
+
+	//http.ListenAndServe(":8083", r) // 和上面的是一样的
+
+	s := &http.Server{
+		Addr:         ":8083",
+		Handler:      r,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 5 * time.Second,
+	}
+	s.ListenAndServe()
 }
