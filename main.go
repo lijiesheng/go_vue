@@ -3,6 +3,7 @@ package main
 import (
 	"Gin_Vue/chapter01"
 	"Gin_Vue/chapter02"
+	"Gin_Vue/chapter03"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -119,6 +120,8 @@ func main() {
 	// root 的 static 是代表到 static 文件中去找
 	r.Static("/static", "static")
 
+	/*------------------------------7、HTTP-------------------------------*/
+
 	//r.Run(":8083")
 
 	//http.ListenAndServe(":8083", r) // 和上面的是一样的
@@ -129,5 +132,16 @@ func main() {
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 5 * time.Second,
 	}
+
+	/*------------------------------第三章-------------------------------*/
+
+	/*---------------------------3.1 模板语法----------------------------*/
+	r.GET("/test_tpl", chapter03.TestSyncTpl)
+
+	/*---------------------------3.2 模板函数----------------------------*/
+
+	/*---------------------------3.2 自定义模板函数----------------------------*/
+
 	s.ListenAndServe()
+
 }
