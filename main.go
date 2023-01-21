@@ -90,6 +90,12 @@ func main() {
 	r.GET("/to_upload4", chapter02.ToUpload4)  // 进入这个页面
 	r.POST("/do_upload4", chapter02.DoUpload4) // 提交数据
 
+	/*------------------------------6、其他输出格式-------------------------------*/
+	// 1、json
+	r.GET("/output_json", chapter02.OutJson)
+	// 2、jsonp
+	r.GET("/output_jsonp", chapter02.OutJSONP)
+
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 
