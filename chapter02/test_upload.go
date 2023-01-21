@@ -49,8 +49,8 @@ func DoUpload2(context *gin.Context) {
 		time_unix_str := strconv.FormatInt(time_unix_int, 10)
 		dst := "upload/" + time_unix_str + v.Filename
 		context.SaveUploadedFile(v, dst)
-		context.String(http.StatusOK, "上传成功")
 	}
+	context.String(http.StatusOK, "上传成功")
 }
 
 // ajax 单文件
@@ -75,7 +75,28 @@ func DoUpload3(context *gin.Context) {
 	dst := "upload/" + time_unix_str + file.Filename
 	context.SaveUploadedFile(file, dst)
 	context.String(http.StatusOK, "上传成功")
-
 }
 
 // ajax 多文件
+func ToUpload4(context *gin.Context) {
+	context.HTML(http.StatusOK, "chapter02/test_upload4.html", nil)
+}
+
+func DoUpload4(context *gin.Context) {
+	form, err := context.MultipartForm()
+	if err != nil {
+		fmt.Println(err)
+	}
+	name := context.PostForm("name")
+	fmt.Println("name = ", name)
+	file_list := form.File["file"]
+	for _, v := range file_list {
+		// 保存文件
+		//dst := "upload/" + time.Now().Format("2006-01-02 15:04:05") + "_" + file.Filename
+		time_unix_int := time.Now().Unix()
+		time_unix_str := strconv.FormatInt(time_unix_int, 10)
+		dst := "upload/" + time_unix_str + v.Filename
+		context.SaveUploadedFile(v, dst)
+	}
+	context.String(http.StatusOK, "上传成功")
+}

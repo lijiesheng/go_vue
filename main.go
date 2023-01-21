@@ -82,12 +82,13 @@ func main() {
 	r.GET("/to_upload2", chapter02.ToUpload2)  // 进入这个页面
 	r.POST("/do_upload2", chapter02.DoUpload2) // 提交数据
 
+	// 3、ajax，多文件
 	r.GET("/to_upload3", chapter02.ToUpload3)  // 进入这个页面
 	r.POST("/do_upload3", chapter02.DoUpload3) // 提交数据
 
-	// 3、ajax，多文件
-
 	// 4、ajax，多文件
+	r.GET("/to_upload4", chapter02.ToUpload4)  // 进入这个页面
+	r.POST("/do_upload4", chapter02.DoUpload4) // 提交数据
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html

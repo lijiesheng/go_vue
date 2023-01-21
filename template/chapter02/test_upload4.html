@@ -1,0 +1,58 @@
+{{ define "chapter02/test_upload4.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax 表单，单文件上传</title>
+    <!--使用ajax,需要引入js-->
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<!--必须添加enctype-->
+  <form enctype="multipart/form-data">
+    选择文件1<input type="file" class="file">   <!--多个文件不能使用id,使用class-->
+      <br>
+      选择文件2<input type="file" class="file">
+      <br>
+      选择文件3<input type="file" class="file">
+      <br>
+      上传人<input type="text" id="name">
+    <input type="button" value="提交" id="btn_upload">
+  </form>
+
+    <script>
+        var btn_upload = document.getElementById("btn_upload")
+        btn_upload.onclick = function (ev) {
+            let formData = new FormData();
+            console.log($(".file")); // 数组
+            for (let i = 0; i < $(".file").length; i++) {
+                console.log($(".file")[i].files[0]);  // 单文件
+                formData.append("file",$(".file")[i].files[0])
+            }
+
+            var name = document.getElementById("name").value
+            console.log("name = ",name);
+            formData.append("name",name)
+
+            $.ajax({
+                url : "/do_upload4",
+                type : "POST",
+                data : formData ,
+                // 使用 ajax 提交，需要这两个数据
+                contentType: false,
+                processData: false,
+                success: function (data) {
+
+                },
+                fail : function (data) {
+
+                }
+            })
+        }
+    </script>
+
+
+
+</body>
+</html>
+{{end}}
