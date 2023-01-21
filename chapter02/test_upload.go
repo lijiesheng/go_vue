@@ -98,5 +98,8 @@ func DoUpload4(context *gin.Context) {
 		dst := "upload/" + time_unix_str + v.Filename
 		context.SaveUploadedFile(v, dst)
 	}
-	context.String(http.StatusOK, "上传成功")
+	context.JSON(http.StatusOK, gin.H{
+		"code":   200,
+		"status": 1,
+	})
 }
