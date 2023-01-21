@@ -254,3 +254,14 @@ func DoUserAdd4(context *gin.Context) {
 	fmt.Println(user)
 	context.String(http.StatusOK, "%s", user.Username+" "+user.Password) // 直接输出浏览器
 }
+
+// 重定向
+func RedirectA(ctx *gin.Context) {
+	fmt.Println("AAAA")
+	ctx.Redirect(http.StatusFound, "/redirectB")
+}
+
+func RedirectB(ctx *gin.Context) {
+	fmt.Println("BBBB")
+	ctx.String(http.StatusOK, "这是B路由")
+}

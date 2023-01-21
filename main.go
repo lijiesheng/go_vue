@@ -106,6 +106,10 @@ func main() {
 	// 3、OutAsciiYAML
 	r.GET("/output_asciiYAML", chapter02.OutAsciiYAML)
 
+	/*------------------------------6、重定向-------------------------------*/
+	r.GET("/redirectA", chapter02.RedirectA)
+	r.GET("/redirectB", chapter02.RedirectB)
+
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
 
