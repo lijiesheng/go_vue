@@ -74,11 +74,20 @@ func main() {
 	// get 请求参数绑定 ShouldBindQuery
 
 	/*------------------------------5、文件上传-------------------------------*/
+	// 1、form 表单，单文件
 	r.GET("/to_upload1", chapter02.ToUpload1)  // 进入这个页面
 	r.POST("/do_upload1", chapter02.DoUpload1) // 提交数据
 
+	// 2、form 表单，单文件
 	r.GET("/to_upload2", chapter02.ToUpload2)  // 进入这个页面
 	r.POST("/do_upload2", chapter02.DoUpload2) // 提交数据
+
+	r.GET("/to_upload3", chapter02.ToUpload3)  // 进入这个页面
+	r.POST("/do_upload3", chapter02.DoUpload3) // 提交数据
+
+	// 3、ajax，多文件
+
+	// 4、ajax，多文件
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
