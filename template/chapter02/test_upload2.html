@@ -1,0 +1,22 @@
+{{ define "chapter02/test_upload2.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form 表单，单文件上传</title>
+</head>
+<body>
+<!--必须添加enctype-->
+  <form action="/do_upload2" method="post" enctype="multipart/form-data">
+    选择文件
+      <input type="file" name="file">    <!--两个文件都是 file,多文件-->
+      <br>
+      选择文件  <input type="file" name="file">
+
+<!--      <input type="file" name="file1">  &lt;!&ndash;只有一个文件是 file1, 单文件&ndash;&gt;-->
+    <br>
+    <input type="submit" value="提交">
+  </form>
+</body>
+</html>
+{{end}}
