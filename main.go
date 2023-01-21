@@ -71,7 +71,11 @@ func main() {
 	r.GET("/to_user_add4", chapter02.ToUserAdd4)  // 进入这个页面
 	r.POST("/do_user_add4", chapter02.DoUserAdd4) // 提交数据
 
-	// get 请求参数绑定
+	// get 请求参数绑定 ShouldBindQuery
+
+	/*------------------------------5、文件上传-------------------------------*/
+	r.GET("/to_upload1", chapter02.ToUpload1)  // 进入这个页面
+	r.POST("/do_upload1", chapter02.DoUpload1) // 提交数据
 
 	// template/* 意思是找当前项目路径下template文件夹下所有的html文件
 	r.LoadHTMLGlob("template/**/*") // 所有的 html 文件都是 /**/xx.html
