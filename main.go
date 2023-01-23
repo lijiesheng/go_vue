@@ -144,6 +144,7 @@ func main() {
 	/*---------------------------3.2 自定义模板函数----------------------------*/
 
 	/*------------------------------第四章-------------------------------*/
+	/*-----------------------1、数据绑定-------------------------------*/
 	// post
 	r.GET("/to_bind_form", chapter04.ToBindForm)  // 到这个页面
 	r.POST("/do_bind_form", chapter04.DoBindForm) // 提交数据
@@ -154,9 +155,11 @@ func main() {
 	// ajax 发送 json
 	r.GET("/to_bind_json", chapter04.ToBindJSON) // 到这个页面
 	r.POST("/do_bind_json", chapter04.DoBindJSON)
-
 	// uri 的绑定
 	r.GET("/do_bind_uri/:name/:age/:addr", chapter04.BindUri)
-	s.ListenAndServe()
 
+	/*-----------------------2、数据验证-------------------------------*/
+	r.GET("/valid", chapter04.ToValidData)
+	r.POST("/do_valid", chapter04.DoValidData)
+	s.ListenAndServe()
 }

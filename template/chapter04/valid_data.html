@@ -1,0 +1,20 @@
+{{ define "chapter04/valid_data.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    数据验证页面
+    <br>
+    <br>
+    <form action="/do_valid" method="post">
+        标题<input type="text" name="title"><br>
+        内容<input type="text" name="content"><br>
+        描述<input type="text" name="desc"><br>
+        <input type="submit" name="提交"><br>
+    </form>
+</body>
+</html>
+{{end}}
