@@ -46,3 +46,9 @@ var Len6Valid validator.Func = func(fl validator.FieldLevel) bool {
 		return true
 	}
 }
+
+//// beego 验证器
+//type Article1 struct {
+//	Id    int    `form:"-"`
+//	Title string `form:"title"`
+//}
