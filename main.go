@@ -6,6 +6,8 @@ import (
 	"Gin_Vue/chapter03"
 	"Gin_Vue/chapter04"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/binding"
+	"github.com/go-playground/validator/v10"
 	"net/http"
 	"time"
 )
@@ -161,5 +163,10 @@ func main() {
 	/*-----------------------2、数据验证-------------------------------*/
 	r.GET("/valid", chapter04.ToValidData)
 	r.POST("/do_valid", chapter04.DoValidData)
+
+	// 注册自定义验证器
+	if v, ok := binding.Validator.Engine().(*validator.Validate); ok {
+		v.RegisterValidation("len_valid", chapter04.Len6Valid)
+	}
 	s.ListenAndServe()
 }
