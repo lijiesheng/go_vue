@@ -13,7 +13,8 @@ func BindQueryString(ctx *gin.Context) {
 		Addr     string `form:"addr" json:"addr"`
 	}{}
 
-	err := ctx.ShouldBindQuery(&mm)
+	//err := ctx.ShouldBindQuery(&mm)  // 这个可以
+	err := ctx.ShouldBind(&mm) // 这个也可以
 	if err != nil {
 		fmt.Println("绑定错误")
 		fmt.Println(err)
