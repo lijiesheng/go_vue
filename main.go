@@ -144,9 +144,12 @@ func main() {
 	/*---------------------------3.2 自定义模板函数----------------------------*/
 
 	/*------------------------------第四章-------------------------------*/
-
+	// post
 	r.GET("/to_bind_form", chapter04.ToBindForm)  // 到这个页面
 	r.POST("/do_bind_form", chapter04.DoBindForm) // 提交数据
+
+	// get
+	r.GET("/bind_query_string", chapter04.BindQueryString) // 到这个页面
 
 	s.ListenAndServe()
 
