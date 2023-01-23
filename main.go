@@ -4,6 +4,7 @@ import (
 	"Gin_Vue/chapter01"
 	"Gin_Vue/chapter02"
 	"Gin_Vue/chapter03"
+	"Gin_Vue/chapter04"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
@@ -141,6 +142,11 @@ func main() {
 	/*---------------------------3.2 模板函数----------------------------*/
 
 	/*---------------------------3.2 自定义模板函数----------------------------*/
+
+	/*------------------------------第四章-------------------------------*/
+
+	r.GET("/to_bind_form", chapter04.ToBindForm)  // 到这个页面
+	r.POST("/do_bind_form", chapter04.DoBindForm) // 提交数据
 
 	s.ListenAndServe()
 
