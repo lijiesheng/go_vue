@@ -1,0 +1,65 @@
+{{ define "chapter04/bind_json.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    引入js-->
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+
+<body>
+    这是 bind_json 页面
+    <br><br>
+    <!--必须添加enctype-->
+    <form>
+        用户名: <input type="text" id="username"><br>
+        密&nbsp;&nbsp;码:<input type="password" id="password"><br>
+        篮球<input type="checkbox" name="love" value="篮球">
+        足球<input type="checkbox" name="love" value="足球">
+        乒乓球<input type="checkbox" name="love" value="乒乓球">
+        棒球<input type="checkbox" name="love" value="棒球"><br>
+        <input type="button" value="提交" id="add_btn">
+    </form>
+    <script>
+        var add_btn = document.getElementById("add_btn");
+        add_btn.onclick = function (ev) {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var loves = [];
+            $("input[name='love']:checked").each(function(i){//把所有被选中的复选框的值存入数组
+                loves.push($(this).val())
+            });
+            console.log(username);
+            console.log(password);
+            console.log(loves);
+
+            $.ajax({
+                url : "/do_bind_json",
+                type : "POST",
+                // data : formData,
+                // data : JSON.stringify({
+                //     "username" : username,
+                //     "password" : password,
+                //     "loves": JSON.stringify(loves)
+                // }),
+                data : {
+                    "username" : username,
+                    "password" : password,
+                    "loves":loves
+                },
+                traditional: true,
+                success: function (data) {
+                    alert(data["code"])
+                    alert(data["msg"])
+                },
+                fail: function (data) {
+
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>
+{{end}}

@@ -149,8 +149,11 @@ func main() {
 	r.POST("/do_bind_form", chapter04.DoBindForm) // 提交数据
 
 	// get
-	r.GET("/bind_query_string", chapter04.BindQueryString) // 到这个页面
+	r.GET("/bind_query_string", chapter04.BindQueryString)
 
+	// ajax 发送 json
+	r.GET("/to_bind_json", chapter04.ToBindJSON) // 到这个页面
+	r.POST("/do_bind_json", chapter04.DoBindJSON)
 	s.ListenAndServe()
 
 }
