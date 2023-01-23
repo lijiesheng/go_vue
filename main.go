@@ -154,6 +154,9 @@ func main() {
 	// ajax 发送 json
 	r.GET("/to_bind_json", chapter04.ToBindJSON) // 到这个页面
 	r.POST("/do_bind_json", chapter04.DoBindJSON)
+
+	// uri 的绑定
+	r.GET("/do_bind_uri/:name/:age/:addr", chapter04.BindUri)
 	s.ListenAndServe()
 
 }
