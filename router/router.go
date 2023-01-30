@@ -1,10 +1,10 @@
 package router
 
 import (
-	"Gin_Vue/chapter01"
-	"Gin_Vue/chapter02"
-	"Gin_Vue/chapter03"
-	"Gin_Vue/chapter04"
+	"Gin_Vue/controller/chapter01"
+	"Gin_Vue/controller/chapter02"
+	"Gin_Vue/controller/chapter03"
+	"Gin_Vue/controller/chapter04"
 	"github.com/gin-gonic/gin"
 )
 
