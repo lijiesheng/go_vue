@@ -1,6 +1,7 @@
 package chapter07
 
 import (
+	"Gin_Vue/controller/chapter07/relate_tables"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -47,6 +48,15 @@ func DeleteData(ctx *gin.Context) {
 	db.First(&user, 1) // 默认使用id字段
 
 	db.Delete(&user)
+	ctx.JSON(http.StatusOK, gin.H{
+		"code":   200,
+		"status": 1,
+	})
+}
+
+// 一对一
+func ForeignKey(ctx *gin.Context) {
+	db.AutoMigrate(&relate_tables.User{}, &relate_tables.UserProfile{})
 	ctx.JSON(http.StatusOK, gin.H{
 		"code":   200,
 		"status": 1,

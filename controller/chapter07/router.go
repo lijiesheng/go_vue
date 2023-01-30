@@ -28,4 +28,7 @@ func Router(chap07 *gin.RouterGroup) {
 	// 删：先查再改
 	chap07.GET("/delete_data", DeleteData)
 
+	// 外键：一对一
+	chap07.GET("/foreign_key", ForeignKey)
+
 }

@@ -3,11 +3,12 @@ package chapter07
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
 	"net/http"
 )
 
 type User struct {
-	Id   int
+	gorm.Model
 	Name string
 	Age  int
 }
