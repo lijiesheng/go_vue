@@ -31,4 +31,7 @@ func Router(chap07 *gin.RouterGroup) {
 	// 外键：一对一
 	chap07.GET("/foreign_key", ForeignKey)
 
+	// 外键：一对多
+	chap07.GET("/foreign_key_one_to_some", ForeignKeyOneToSome)
+
 }

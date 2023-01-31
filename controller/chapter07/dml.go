@@ -62,3 +62,12 @@ func ForeignKey(ctx *gin.Context) {
 		"status": 1,
 	})
 }
+
+// 一对多
+func ForeignKeyOneToSome(ctx *gin.Context) {
+	db.AutoMigrate(&relate_tables.User2{}, &relate_tables.Article{})
+	ctx.JSON(http.StatusOK, gin.H{
+		"code":   200,
+		"status": 1,
+	})
+}
