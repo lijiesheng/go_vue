@@ -6,6 +6,7 @@ import (
 	"Gin_Vue/controller/chapter03"
 	"Gin_Vue/controller/chapter04"
 	"Gin_Vue/controller/chapter07"
+	"Gin_Vue/controller/chapter11"
 	"github.com/gin-gonic/gin"
 )
 
@@ -24,4 +25,7 @@ func Router(engine *gin.Engine) {
 
 	chap07 := engine.Group("/chapter07")
 	chapter07.Router(chap07)
+
+	chap11 := engine.Group("/chapter11")
+	chapter11.Router(chap11)
 }
