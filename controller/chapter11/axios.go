@@ -1,6 +1,7 @@
 package chapter11
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -158,6 +159,46 @@ func SliceStructController(context *gin.Context) {
 	}{
 		{Id: 1, Name: "ljs"},
 		{Id: 2, Name: "hsm"},
+	}
+	context.JSON(http.StatusOK, gin.H{
+		"code": 200,
+		"msg":  "成功",
+		"user": user_list,
+	})
+}
+
+func DynamicRouter(context *gin.Context) {
+	user_list := []struct {
+		//Id      int      `json:"id"`
+		Key     string   `json:"key"`
+		Name    string   `json:"name"`
+		Age     int      `json:"age"`
+		Address string   `json:"address"`
+		Tags    []string `json:"tags"`
+	}{
+		{Key: "1", Name: "John Brown", Age: 32, Address: "New York No. 1 Lake Park", Tags: []string{"nice", "developer"}},
+		{Key: "2", Name: "Jim Green", Age: 42, Address: "London No. 1 Lake Park", Tags: []string{"loser"}},
+	}
+	context.JSON(http.StatusOK, gin.H{
+		"code": 200,
+		"msg":  "成功",
+		"user": user_list,
+	})
+}
+
+func GetBookDetails(context *gin.Context) {
+	// 获取 id
+	id := context.Query("name")
+	fmt.Println(id)
+	user_list := struct {
+		//Id      int      `json:"id"`
+		Key     string   `json:"key"`
+		Name    string   `json:"name"`
+		Age     int      `json:"age"`
+		Address string   `json:"address"`
+		Tags    []string `json:"tags"`
+	}{
+		Key: "1", Name: "John Brown", Age: 32, Address: "New York No. 1 Lake Park", Tags: []string{"nice", "developer"},
 	}
 	context.JSON(http.StatusOK, gin.H{
 		"code": 200,
